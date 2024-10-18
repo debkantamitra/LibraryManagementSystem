@@ -13,5 +13,28 @@
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+    <dependencies>
+    <!-- SLF4J API -->
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.30</version> <!-- Compatible version -->
+    </dependency>
+
+    <!-- Logback Classic -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-classic</artifactId>
+        <version>1.2.3</version> <!-- Version compatible with Java 8 -->
+    </dependency>
+
+    <!-- Logback Core (optional) -->
+    <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.2.3</version> <!-- Optional: if you want to specify it -->
+    </dependency>
+</dependencies>
+
 
 </project>
