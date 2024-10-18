@@ -1,15 +1,20 @@
 package org.learnerManagementSystem.inventoryManagement;
 
+import org.Main;
 import org.learnerManagementSystem.bookManagement.Book;
 import org.learnerManagementSystem.bookManagement.BookManagement;
 import org.learnerManagementSystem.lendingProcess.LendingProcess;
 import org.learnerManagementSystem.patronManagement.Patron;
 import org.learnerManagementSystem.patronManagement.PatronManagement;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InventoryManagement implements LendingProcess {
+    Logger logger = LoggerFactory.getLogger(InventoryManagement.class);
+
     private BookManagement bookManagement;
     private PatronManagement patronManagement;
 
@@ -26,6 +31,8 @@ public class InventoryManagement implements LendingProcess {
 
         patron.getBorrowedBooks().add(book);
         book.decreaseAvailableQuantityByOne();
+
+        logger.info("Checkout successful!");
     }
 
     @Override
@@ -35,6 +42,8 @@ public class InventoryManagement implements LendingProcess {
 
         patron.getBorrowedBooks().remove(book);
         book.increaseAvailableQuantityByOne();
+
+        logger.info("Return successful!");
     }
 
     public List<Book> getBorrowedBooks() {
